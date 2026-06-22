@@ -1,24 +1,12 @@
-# 🐒 Monke PDF - Local PDF Summarizer & Q&A (RAG)
+# Monke PDF - Local PDF Summarizer & Q&A (RAG)
 
-**Monke PDF** is a premium, privacy-first document intelligence platform that allows you to upload, view, summarize, and chat with PDF documents completely offline. Powered by a **FastAPI** backend and a stunning glassmorphic SPA frontend, it runs entirely on your local machine using local embedding models and offline LLMs (via Ollama or Hugging Face). No API keys, no monthly fees, and 100% data confidentiality.
-
----
-
-## 🎨 Interface Features
-
-- **Automated Splash Page**: A sleek 5-second intro screen presenting a custom 3D glassmorphic brand graphic, character-by-character typewriter animation, and loading indicator.
-- **Triple-Box Workspace Dashboard**:
-  1. **Document Viewer**: An embedded original PDF viewer utilizing a native iframe with scroll/view activity heartbeats.
-  2. **Document Insights**: Displays page count, character metrics, file size, an answering mode toggle, and a dynamically streamed executive summary.
-  3. **Interactive Q&A Chat**: A multi-turn chatbot scroll pane supporting conversational history memory and token-by-token text streams parsed with rich Markdown rendering.
-- **Dual Answering Modes**:
-  - **STRICT Mode**: Directs the LLM to restrict answers *solely* to the contents of the PDF context. If it isn't in the document, the model will politely decline, avoiding AI hallucinations.
-  - **OPEN Mode**: Instructs the LLM to use the PDF context as a baseline but allows it to draw on background knowledge to explain definitions or provide external follow-up answers.
-- **Close & Reset Interceptors**: Provides confirmation popup modal alerts before closing the loaded PDF or starting a new upload session, protecting you from losing active Q&A history.
+**Monke PDF** is a document intelligence platform that allows you to upload, view, summarize, and chat with PDF documents completely offline. Powered by a **FastAPI** backend , it runs entirely on your local machine using local embedding models and offline LLMs (via Ollama or Hugging Face). 
 
 ---
 
-## 🛠️ Local RAG Architecture
+
+
+## Local RAG Architecture
 
 1. **Text Extraction**: Uses local `pypdf` parsing.
 2. **Auto-OCR Fallback**: If a document is scanned or contains non-selectable text (less than 100 characters total), the backend automatically processes page views via local `fitz` (PyMuPDF) and runs deep learning character recognition using `easyocr`.
@@ -28,7 +16,7 @@
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 - **Python 3.10+**
@@ -76,7 +64,7 @@
 
 ---
 
-## 💻 Command-Line Interface (CLI)
+## Command-Line Interface (CLI)
 
 You can also run the RAG pipeline directly from your terminal using `rag_cli.py`:
 
@@ -93,23 +81,6 @@ python rag_cli.py --pdf "path/to/your/document.pdf" --mode huggingface
 
 ---
 
-## 📂 Project Directory Structure
-
-```
-├── .pdf_cache/           # Temporary local storage for index databases and backup PDFs (Git ignored)
-├── explanations/          # Line-by-line documentation text files (Git ignored)
-├── myenv/                # Local Python virtual environment files (Git ignored)
-├── app.js                # Frontend SPA controller and endpoint stream interface
-├── index.html            # Core SPA HTML5 markup structures and modals layout
-├── main.py               # FastAPI backend web app, background cleanup daemons, and endpoints
-├── placeholder.png       # Custom landing page illustration asset
-├── rag_cli.py            # Local RAG CLI terminal tool
-├── requirements.txt      # Project Python dependencies list
-├── style.css             # Main stylesheet implementing glassmorphic rules and keyframe animations
-└── README.md             # This document
-```
-
----
 
 ## 🔒 Privacy & Data Confidentiality
 
