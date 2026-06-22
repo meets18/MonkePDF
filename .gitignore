@@ -11,8 +11,6 @@ __pycache__/
 
 # Document RAG cache (contains index databases and uploaded files)
 .pdf_cache/
-
-# Codebase explanations directory
 explanations/
 
 # OS-specific files
